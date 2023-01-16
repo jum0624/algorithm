@@ -2,7 +2,6 @@ package day2;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 public class 모스부호1 {
     public String solution(String letter) {
@@ -38,19 +37,19 @@ public class 모스부호1 {
         }};
 
         for (int i = 0; i < split.length; i++) {
-            String s = split[i];
-            Optional<String> result = map.entrySet().stream()
-                    .filter(e -> e.getValue() == s)
-                    .map(Map.Entry::getKey)
-                    .findFirst();
-
+            for (String key : map.keySet()) {
+                if (key.equals(split[i])) {
+                    answer += map.get(key);
+                }
+            }
         }
 
         return answer;
+
     }
 
     public static void main(String[] args) {
         모스부호1 sol = new 모스부호1();
-        System.out.println(sol.solution("\".... . .-.. .-.. ---\""));
+        System.out.println(sol.solution(".--. -.-- - .... --- -."));
     }
 }
