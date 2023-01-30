@@ -1,19 +1,24 @@
 package day5;
 
+import java.util.Stack;
+
 public class 컨트롤제트 {
     public int solution(String s) {
         int answer = 0;
-        int save = 0;
-        String[] split = s.split(" ");
-        for (String number : split
+        Stack<Integer> stack = new Stack<>();
+
+        for (String s1 : s.split(" ")
         ) {
-            if (!number.equals("Z")) {
-                int num = Integer.parseInt(number);
-                answer += num;
-                save = Integer.parseInt(number);
+            if (s1.equals("Z")) {
+                stack.pop();
             } else {
-                answer -= save;
+                stack.push(Integer.valueOf(s1));
             }
+        }
+
+        for (Integer num : stack
+        ) {
+            answer += num;
         }
         return answer;
     }
