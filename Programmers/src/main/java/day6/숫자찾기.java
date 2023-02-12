@@ -14,7 +14,7 @@ public class 숫자찾기 {
     }
 
     public static void main(String[] args) {
-        OX퀴즈 sol = new OX퀴즈();
+        숫자찾기 sol = new 숫자찾기();
         System.out.println(sol.solution(123456, 6));
     }
 }
