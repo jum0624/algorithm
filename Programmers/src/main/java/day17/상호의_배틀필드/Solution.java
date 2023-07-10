@@ -11,18 +11,7 @@ class Solution {
     static int[] dx = {-1, 1, 0, 0};  // 위 아래 오른 왼
     static int[] dy = {0, 0, 1, -1};
     public static void main(String args[]) throws Exception {
-		/*
-		   아래의 메소드 호출은 앞으로 표준 입력(키보드) 대신 input.txt 파일로부터 읽어오겠다는 의미의 코드입니다.
-		   여러분이 작성한 코드를 테스트 할 때, 편의를 위해서 input.txt에 입력을 저장한 후,
-		   이 코드를 프로그램의 처음 부분에 추가하면 이후 입력을 수행할 때 표준 입력 대신 파일로부터 입력을 받아올 수 있습니다.
-		   따라서 테스트를 수행할 때에는 아래 주석을 지우고 이 메소드를 사용하셔도 좋습니다.
-		   단, 채점을 위해 코드를 제출하실 때에는 반드시 이 메소드를 지우거나 주석 처리 하셔야 합니다.
-		 */
-//        System.setIn(new FileInputStream("res/input.txt"));
 
-		/*
-		   표준입력 System.in 으로부터 스캐너를 만들어 데이터를 읽어옵니다.
-		 */
         Scanner sc = new Scanner(System.in);
         int T;
         T=sc.nextInt();
@@ -60,84 +49,116 @@ class Solution {
             for (int i = 0; i < skill.length; i++) {
                 int nowX = x;
                 int nowY = y;
-                char state = array[x][y];
 
                 if (skill[i] == 'U') {
-                    array[nowX][nowY] = '.';state = '^';
+                    // 방향회전 하고
+                    array[x][y] = '^';
+                    // next로 진입 가능여부 확인
+                    // 이동 (전에 위치 .으로 바꾸고 옮기기)
                     nowX += dx[0];
                     nowY += dy[0];
+                    if (nowX >= 0 && array[nowX][nowY] == '.') {
+                        array[x][y] = '.';
+                        array[nowX][nowY] = '^';
+                        // 전차 위치 업데이트
+                        x = nowX;
+                        y = nowY;
+                    }
+
                 } else if (skill[i] == 'D') {
-                    array[nowX][nowY] = '.';
-                    state = 'v';
+                    array[x][y] = 'v';
                     nowX += dx[1];
                     nowY += dy[1];
-                } else if (skill[i] == 'L') {
-                    array[nowX][nowY] = '.';
-                    state = '<';
-                    nowX += dx[3];
-                    nowY += dy[3];
+                    if (nowX < H && array[nowX][nowY] == '.') {
+                        array[x][y] = '.';
+                        array[nowX][nowY] = 'v';
+                        x = nowX;
+                        y = nowY;
+                    }
+
                 } else if (skill[i] == 'R') {
-                    array[nowX][nowY] = '.';
-                    state = '>';
+                    array[nowX][nowY] = '>';
                     nowX += dx[2];
                     nowY += dy[2];
-                } else if (skill[i] == 'S') {
-                    int realX = nowX;
-                    int realY = nowY;
-                    if (array[nowX][nowY] == '^') {
-                        while (nowX > 0) {
-                            nowX += dx[0];
-                            nowY += dy[0];
-                            if (array[nowX][nowY] != '#' && array[nowX][nowY] != '-') {
-                                array[nowX][nowY] = '.';
-                            }
-                        }
+                    if (nowY < W && array[nowX][nowY] == '.') {
+                        array[x][y] = '.';
+                        array[nowX][nowY] = '>';
+                        x = nowX;
+                        y = nowY;
                     }
-                    if (array[nowX][nowY] == 'v') {
-                        while (nowX < H-1) {
-                            nowX += dx[1];
-                            nowY += dy[1];
-                            if (array[nowX][nowY] != '#' && array[nowX][nowY] != '-') {
-                                array[nowX][nowY] = '.';
-                            }
-                        }
-                    }
-                    if (array[nowX][nowY] == '<') {
-                        while (nowY > 0) {
-                            nowX += dx[3];
-                            nowY += dy[3];
-                            if (array[nowX][nowY] != '#' && array[nowX][nowY] != '-') {
-                                array[nowX][nowY] = '.';
-                            }
-                        }
-                    }
-                    if (array[nowX][nowY] == '>') {
-                        while (nowY < W-1) {
-                            nowX += dx[2];
-                            nowY += dy[2];
-                            if (array[nowX][nowY] != '#' && array[nowX][nowY] != '-') {
-                                array[nowX][nowY] = '.';
-                            }
-                        }
-                    }
-                    nowX = realX;
-                    nowY = realY;
-                }
-                if (nowX >= 0 && nowX < H && nowY >= 0 && nowY < W && array[nowX][nowY] != '*' && array[nowX][nowY] != '#' && array[nowX][nowY] != '-') {
-                    x = nowX;
-                    y = nowY;
-                }
-                array[x][y] = state;
 
-                for (int p = 0; p < H; p++) {
-                    for (int j = 0; j < W; j++) {
-                        System.out.print(array[p][j]);
+                } else if (skill[i] == 'L') {
+                    array[nowX][nowY] = '<';
+                    nowX += dx[3];
+                    nowY += dy[3];
+                    if (nowY >= 0 && array[nowX][nowY] == '.') {
+                        array[x][y] = '.';
+                        array[nowX][nowY] = '<';
+                        x = nowX;
+                        y = nowY;
                     }
-                    System.out.println();
+
+                } else if (skill[i] == 'S') {
+                    int nextX = nowX;
+                    int nextY = nowY;
+                    if (array[x][y] == '^') {
+                        // 한칸씩 위로 올라가며 목표물 확인
+                        // 확인 후 폭파 가능시 .으로 변경
+                        // #을 만날 경우 break
+                        while(true) {
+                            nextX += dx[0];
+                            nextY += dy[0];
+                            if (nextX >= 0 && array[nextX][nextY] == '*') {
+                                array[nextX][nextY] = '.';
+                                break;
+                            }
+                            if (nextX < 0 || array[nextX][nextY] == '#') {
+                                break;
+                            }
+                        }
+                    } else if (array[x][y] == 'v') {
+                        while(true) {
+                            nextX += dx[1];
+                            nextY += dy[1];
+                            if (nextX < H && array[nextX][nextY] == '*') {
+                                array[nextX][nextY] = '.';
+                                break;
+                            }
+                            if (nextX >= H || array[nextX][nextY] == '#') {
+                                break;
+                            }
+                        }
+
+                    } else if (array[x][y] == '>') {
+                        while(true) {
+                            nextX += dx[2];
+                            nextY += dy[2];
+                            if (nextY < W && array[nextX][nextY] == '*') {
+                                array[nextX][nextY] = '.';
+                                break;
+                            }
+                            if (nextY >= W || array[nextX][nextY] == '#') {
+                                break;
+                            }
+                        }
+
+                    } else if (array[x][y] == '<') {
+                        while(true) {
+                            nextX += dx[3];
+                            nextY += dy[3];
+                            if (nextY >= 0 && array[nextX][nextY] == '*') {
+                                array[nextX][nextY] = '.';
+                                break;
+                            }
+                            if (nextY < 0 || array[nextX][nextY] == '#') {
+                                break;
+                            }
+                        }
+                    }
                 }
-                System.out.println();
             }
 
+            System.out.print("#" + test_case + " ");
             for (int i = 0; i < H; i++) {
                 for (int j = 0; j < W; j++) {
                     System.out.print(array[i][j]);
