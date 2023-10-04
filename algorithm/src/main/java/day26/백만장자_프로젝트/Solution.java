@@ -1,4 +1,4 @@
-package 백만장자_프로젝트;
+package day26.백만장자_프로젝트;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,21 +23,23 @@ public class Solution {
             for(int j = 0; j < day; j++) {
                 day_price[j] = Integer.parseInt(st.nextToken());
             }
-            int item_count = 0;
-            int price = 0;
 
-            for(int d = 0; d < day_price.length-1; d++) {
-                if(day_price[d] <= day_price[d+1]) {
-                    price -= day_price[d];
+            long price = 0;
+            int k = 0;
+            while (k < day) {
+                int max_index = k;
+                int item_count = 0;
+                for (int j = k; j < day; j++) {
+                    if (day_price[j] > day_price[max_index]) {
+                        max_index = j;
+                    }
+                }
+                for (int j = k; j < max_index; j++) {
+                    price -= day_price[j];
                     item_count += 1;
                 }
-                if(day_price[d] > day_price[d+1]) {
-                    price += (item_count * day_price[d]);
-                    item_count = 0;
-                }
-                if (d + 1 == day_price.length - 1 && day_price[d] <= day_price[d+1] ) {
-                    price += (item_count * day_price[d + 1]);
-                }
+                k = max_index + 1;
+                price += (long) day_price[max_index] * item_count;
             }
             System.out.println("#" + (i+1) + " " + price);
         }
