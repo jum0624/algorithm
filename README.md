@@ -5,7 +5,7 @@
 
 하루에 한문제는 꼭 풀어나가려고 노력하고 있습니다🔥
 
-[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=백준아이디)](https://solved.ac/jum0624/)
+[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=jum0624)](https://solved.ac/jum0624/)
 
 ## 공부 기록
 | 순번 | 내용 | 링크 | 복습 |
