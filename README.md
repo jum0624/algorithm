@@ -13,5 +13,6 @@
 | 1 | 분할정복 | 👉🏻 [바로가기](https://github.com/jum0624/algorithm/tree/main/algorithm/src/main/java/%EB%B6%84%ED%95%A0%EC%A0%95%EB%B3%B5) | ☑️ |
 | 2 | 백트래킹 | 👉🏻 [바로가기](https://github.com/jum0624/algorithm/tree/main/algorithm/src/main/java/%EB%B0%B1%ED%8A%B8%EB%9E%98%ED%82%B9) | ☑️ |
 | 3 | 해싱 | 👉🏻 [바로가기](https://github.com/jum0624/algorithm/tree/main/algorithm/src/main/java/hash) | ☑️ |
+| 4 | BFS/DFS |  👉🏻 [바로가기](https://github.com/jum0624/algorithm/tree/main/algorithm/src/main/java/dfs_bfs) | ☑️ |
 
 
