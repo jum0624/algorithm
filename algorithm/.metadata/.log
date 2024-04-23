@@ -1,0 +1,112 @@
+!SESSION 2024-04-08 22:59:10.058 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=aarch64, WS=cocoa, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/eunmi/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch aarch64 -product org.eclipse.epp.package.jee.product -keyring /Users/eunmi/.eclipse_keyring
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-04-08 22:59:11.339
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY ch.qos.logback.classic 1 0 2024-04-08 22:59:11.489
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-04-08 23:00:03.940
+!MESSAGE Logback config file: /Users/eunmi/Desktop/git-repos/algorithm/algorithm/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.6.0.20240217-1525.xml
+
+!ENTRY org.eclipse.urischeme 4 0 2024-04-08 23:00:09.108
+!MESSAGE java.nio.file.FileSystemException: /Volumes/Eclipse/Eclipse.app/Contents/Info.plist: Read-only file system
+!STACK 0
+java.lang.IllegalStateException: java.nio.file.FileSystemException: /Volumes/Eclipse/Eclipse.app/Contents/Info.plist: Read-only file system
+	at org.eclipse.urischeme.internal.registration.PlistFileWriter.transformDocument(PlistFileWriter.java:213)
+	at org.eclipse.urischeme.internal.registration.PlistFileWriter.writeTo(PlistFileWriter.java:202)
+	at org.eclipse.urischeme.internal.registration.RegistrationMacOsX.changePlistFile(RegistrationMacOsX.java:146)
+	at org.eclipse.urischeme.internal.registration.RegistrationMacOsX.handleSchemes(RegistrationMacOsX.java:53)
+	at org.eclipse.urischeme.AutoRegisterSchemeHandlersJob.run(AutoRegisterSchemeHandlersJob.java:92)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.nio.file.FileSystemException: /Volumes/Eclipse/Eclipse.app/Contents/Info.plist: Read-only file system
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:218)
+	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:484)
+	at java.base/java.nio.file.Files.newOutputStream(Files.java:228)
+	at java.base/java.nio.file.Files.newBufferedWriter(Files.java:3008)
+	at java.base/java.nio.file.Files.newBufferedWriter(Files.java:3056)
+	at org.eclipse.urischeme.internal.registration.FileProvider.newWriter(FileProvider.java:51)
+	at org.eclipse.urischeme.internal.registration.RegistrationMacOsX.lambda$8(RegistrationMacOsX.java:146)
+	at org.eclipse.urischeme.internal.registration.PlistFileWriter.transformDocument(PlistFileWriter.java:206)
+	... 5 more
+
+!ENTRY org.eclipse.ui.ide 4 0 2024-04-08 23:01:53.948
+!MESSAGE Could not import project located at /Users/eunmi/Desktop/git-repos/algorithm/algorithm
+!STACK 0
+org.eclipse.ui.internal.wizards.datatransfer.CouldNotImportProjectException: Could not import project located at /Users/eunmi/Desktop/git-repos/algorithm/algorithm
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.toExistingOrNewProject(SmartImportJob.java:555)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.run(SmartImportJob.java:246)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.core.internal.resources.ResourceException: Invalid project description.
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:211)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:95)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:305)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:291)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.createOrImportProject(SmartImportJob.java:594)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.toExistingOrNewProject(SmartImportJob.java:542)
+	... 2 more
+
+!ENTRY org.eclipse.ui.ide 4 0 2024-04-08 23:02:46.730
+!MESSAGE Could not import project located at /Users/eunmi/Desktop/git-repos/algorithm/algorithm
+!STACK 0
+org.eclipse.ui.internal.wizards.datatransfer.CouldNotImportProjectException: Could not import project located at /Users/eunmi/Desktop/git-repos/algorithm/algorithm
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.toExistingOrNewProject(SmartImportJob.java:555)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.run(SmartImportJob.java:246)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.core.internal.resources.ResourceException: Invalid project description.
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:211)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:95)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:305)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:291)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.createOrImportProject(SmartImportJob.java:594)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.toExistingOrNewProject(SmartImportJob.java:542)
+	... 2 more
+!SESSION 2024-04-08 23:03:13.735 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=17.0.10
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=aarch64, WS=cocoa, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/eunmi/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch aarch64 -product org.eclipse.epp.package.jee.product -keyring /Users/eunmi/.eclipse_keyring
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-04-08 23:03:14.600
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY ch.qos.logback.classic 1 0 2024-04-08 23:03:14.738
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-04-08 23:03:25.143
+!MESSAGE Logback config file: /Users/eunmi/Desktop/git-repos/algorithm/algorithm/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.6.0.20240217-1525.xml
+
+!ENTRY org.eclipse.urischeme 4 0 2024-04-08 23:03:29.361
+!MESSAGE java.nio.file.FileSystemException: /Volumes/Eclipse/Eclipse.app/Contents/Info.plist: Read-only file system
+!STACK 0
+java.lang.IllegalStateException: java.nio.file.FileSystemException: /Volumes/Eclipse/Eclipse.app/Contents/Info.plist: Read-only file system
+	at org.eclipse.urischeme.internal.registration.PlistFileWriter.transformDocument(PlistFileWriter.java:213)
+	at org.eclipse.urischeme.internal.registration.PlistFileWriter.writeTo(PlistFileWriter.java:202)
+	at org.eclipse.urischeme.internal.registration.RegistrationMacOsX.changePlistFile(RegistrationMacOsX.java:146)
+	at org.eclipse.urischeme.internal.registration.RegistrationMacOsX.handleSchemes(RegistrationMacOsX.java:53)
+	at org.eclipse.urischeme.AutoRegisterSchemeHandlersJob.run(AutoRegisterSchemeHandlersJob.java:92)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.nio.file.FileSystemException: /Volumes/Eclipse/Eclipse.app/Contents/Info.plist: Read-only file system
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:218)
+	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:484)
+	at java.base/java.nio.file.Files.newOutputStream(Files.java:228)
+	at java.base/java.nio.file.Files.newBufferedWriter(Files.java:3008)
+	at java.base/java.nio.file.Files.newBufferedWriter(Files.java:3056)
+	at org.eclipse.urischeme.internal.registration.FileProvider.newWriter(FileProvider.java:51)
+	at org.eclipse.urischeme.internal.registration.RegistrationMacOsX.lambda$8(RegistrationMacOsX.java:146)
+	at org.eclipse.urischeme.internal.registration.PlistFileWriter.transformDocument(PlistFileWriter.java:206)
+	... 5 more
