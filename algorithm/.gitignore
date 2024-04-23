@@ -25,4 +25,8 @@ hs_err_pid*
 replay_pid*
 
 *.idea
-
+*.gradle
+*.metadata
+build/*
+out/*
+gradle/*
