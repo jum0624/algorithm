@@ -36,7 +36,7 @@ public class Main {
             int count = 0;
             int result = 1;
             while (true) {
-                while (count != n) {
+                while (count != queue.size()) {
                     Point poll = queue.poll();
                     if (max_priority < poll.priority) {
                         max_priority = poll.priority;
@@ -53,7 +53,6 @@ public class Main {
                 result += 1;
                 count = 0;
                 max_priority = 0;
-                n -= 1;
             }
 
         }
